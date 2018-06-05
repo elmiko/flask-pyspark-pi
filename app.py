@@ -1,4 +1,5 @@
 import os
+import sysconfig
 
 from flask import Flask
 from flask import request
@@ -40,5 +41,7 @@ def sparkpi():
 
 
 if __name__ == "__main__":
+    pyvers = sysconfig.get_python_version()
+    print('Python version ' + pyvers)
     port = int(os.environ.get("PORT", 8080))
     app.run(host='0.0.0.0', port=port)
